@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useEffect } from "react";
+import NavBar from "./components/NavBar";
+import Header from "./components/Header";
+import Sections from "./components/Sections";
+import Footer from "./components/Footer";
+import "./styles/css/main.css";
 
-function App() {
+export default function App() {
+  const navWrapperRef = useRef(null);
+  const headerContentRef = useRef(null);
+
+  const navScrollSystem = () => {
+    const navWrapperPos = navWrapperRef.current.getBoundingClientRect().bottom;
+
+    if (window.innerWidth < 783) {
+      window.onscroll = () => {
+        if (
+          headerContentRef.current.getBoundingClientRect().top <
+          navWrapperPos + 10
+        ) {
+          if (navWrapperRef.current.classList.contains("nav-wrapper-black"))
+            return;
+          navWrapperRef.current.classList.add("nav-wrapper-black");
+        } else {
+          if (!navWrapperRef.current.classList.contains("nav-wrapper-black"))
+            return;
+          navWrapperRef.current.classList.remove("nav-wrapper-black");
+        }
+      };
+    }
+  };
+
+  /**  TO_DO:
+  * Create Skeleton loading
+  * Fetch Data from content.json
+  */
+  useEffect(() => {
+    console.clear();
+    navScrollSystem();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar data={{ navWrapperRef }} />
+      <Header data={{ headerContentRef }} />
+      <Sections />
+      <Footer />
+    </>
   );
 }
-
-export default App;

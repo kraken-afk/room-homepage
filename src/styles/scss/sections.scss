@@ -1,0 +1,31 @@
+.about-section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: .95fr 1.1fr .95fr;
+
+  .about-image {
+    &:first-child {
+      background: url('../../images/image-about-dark.jpg');
+      background-size: cover;
+    }
+    &:last-child {
+      background: url('../../images/image-about-light.jpg');
+      background-size: cover;
+    }
+  }
+
+  .about-article {
+    padding: 5rem min(5vw, 4rem) 3rem min(5vw, 4rem);
+    
+    .about-article-heading {
+      font-size: 1rem;
+      letter-spacing: 6px;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .about-article-paragraph {
+      @include paragraph();
+    }
+  }
+}

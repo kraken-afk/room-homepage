@@ -1,0 +1,64 @@
+/* Colors */
+$Dark-Gray: hsl(0, 0%, 63%);
+$Black: hsl(0, 0%, 0%);
+$White: hsl(0, 0%, 100%);
+$Very-Dark-Gray: hsl(0, 0%, 27%);
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: $direction;
+  align-items: center;
+}
+
+@mixin paragraph() {
+  color: $Very-Dark-Gray;
+  font-size: min(3vw, 1rem);
+  line-height: 1.5;
+  margin-bottom: min(2vw, 3rem);
+}
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap');
+$Spartan: "Spartan", sans-serif;
+/* 500, 600, 700 */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    background-color: transparent;
+    outline: none;
+  }
+  
+}
+
+:root {
+  font-size: 12px;
+  font-family: $Spartan;
+}
+
+.nav-reveal {
+  clip-path: circle(150% at 10% 50%) !important;
+}
+
+.nav-wrapper-black {
+  background-color: $Black !important;
+}
+
+.hero-carousel-image-1 {
+  background-image: url('../../images/desktop-image-hero-1.jpg');
+  background-size: cover;
+}
+
+.hero-carousel-image-2 {
+  background-image: url('../../images/desktop-image-hero-2.jpg');
+  background-size: cover;
+}
+
+.hero-carousel-image-3 {
+  background-image: url('../../images/desktop-image-hero-3.jpg');
+  background-size: cover;
+}

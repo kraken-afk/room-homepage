@@ -1,0 +1,136 @@
+// Large screen
+@media screen and (min-width: 1200px) {
+  .header {
+    height: 80vh;
+  }
+}
+
+// laptop
+@media screen and (max-width: 992px) {
+  .header {
+    height: 60vh;
+
+    .hero-carousel {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      .carousel-btns {
+        position: static;
+      }
+    }
+  }
+
+  .about-section {
+    
+    .about-article {
+      padding: 5rem 2rem 3rem 2rem;
+
+     .about-article-heading {
+        letter-spacing: 2px;
+      }
+
+      .about-article-paragraph {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+// Tablet
+@media screen and (max-width: 783px) {
+  .header {
+    height: max-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: 600px 300px;
+  }
+
+  .header-content {
+    width: 80%;
+    max-height: max-content;
+  }
+
+    .about-section {
+    
+    .about-article {
+      padding: 5rem 2rem 5rem 2rem;
+    }
+  }
+}
+
+// Mobile
+@media screen and (max-width: 576px) {
+  .nav {
+    @include flexCenter(center);
+
+    .nav-links {
+      @include flexCenter(center);
+      position: absolute;
+      z-index: 4;
+      width: 100%;
+      height: 100%;
+      background-color: $White;
+
+      clip-path: circle(0% at 10% 50%);
+      
+      li {
+        font-size: 1.2rem;
+        margin: 0 .8rem;
+        transform: translateX(8vw);
+         
+        a {
+          color: $Black;
+          font-weight: 700;
+
+          &::before {
+            background-color: $Black;
+          }
+        }
+      }
+    }
+
+    .hamburger-menu {
+      visibility: visible;
+      left: 8%;
+      z-index: 6;
+    }
+  }
+
+  .header {
+     grid-template-rows: 400px 500px;
+
+    .header-content {
+      padding: 3rem;
+      padding-left: 1.5rem;
+      width: 100%;
+
+      .content-heading {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+        margin-top: 2rem;
+      }
+
+      .content-paragraph {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    .about-article {
+
+      .about-article-heading {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .about-article-paragraph {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
