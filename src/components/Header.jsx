@@ -1,15 +1,42 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Header({ data }) {
-  const { headerContentRef } = data;
+  const { headerContentRef, headerRef, dataContent } = data;
+  const [index, setIndex] = useState(0);
+  const head = dataContent[index]?.head;
+  const paragraph = dataContent[index]?.paragraph;
+
+  function nextClickHandle() {
+    handleSlideAnimation('right');
+    setTimeout(() => {
+      if (index < dataContent.length - 1) setIndex(index + 1);
+      else setIndex(0);
+    }, 200);
+  }
+
+  function prevClickHandle() {
+    handleSlideAnimation('left');
+    setTimeout(() => {
+      if (index > 0) setIndex(index - 1);
+      else setIndex(2);
+    }, 200);
+  }
+
+  function handleSlideAnimation(type) {
+    const element = headerRef.current;
+    element.onanimationend = () =>
+      element.classList.remove("header-slide-" + type);
+    element.classList.add("header-slide-" + type);
+  }
+
 
   return (
-    <header className="header">
-      <div className="hero-carousel hero-carousel-image-1">
+    <header className="header" ref={headerRef}>
+      <div className={`hero-carousel hero-carousel-image-${index + 1}`}>
         <div className="carousel-btns">
-          <button>
+          <button onClick={prevClickHandle}>
             <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M13 0L1 12l12 12"
@@ -19,7 +46,7 @@ export default function Header({ data }) {
               />
             </svg>
           </button>
-          <button>
+          <button onClick={nextClickHandle}>
             <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M1 0l12 12L1 24"
@@ -32,16 +59,8 @@ export default function Header({ data }) {
         </div>
       </div>
       <article className="header-content" ref={headerContentRef}>
-        <h1 className="content-heading">
-          Manufactured with the best materials
-        </h1>
-        <p className="content-paragraph">
-          Our modern furniture stare provide a high level of quality. Our
-          company has invested in advanced technology to ensure that every
-          product is made as perfect and as consistent as possible. With three
-          decades of experience in this industry. We understand what customer
-          whant for their home and office.
-        </p>
+        <h1 className="content-heading">{head}</h1>
+        <p className="content-paragraph">{paragraph}</p>
         <a href="#">
           SHOP NOW{" "}
           <span className="arrow">

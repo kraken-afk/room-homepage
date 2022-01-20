@@ -41,7 +41,7 @@ $Spartan: "Spartan", sans-serif;
 }
 
 .nav-reveal {
-  clip-path: circle(150% at 10% 50%) !important;
+  clip-path: circle(150% at 10.5% 50%) !important;
 }
 
 .nav-wrapper-black {
@@ -61,4 +61,24 @@ $Spartan: "Spartan", sans-serif;
 .hero-carousel-image-3 {
   background-image: url('../../images/desktop-image-hero-3.jpg');
   background-size: cover;
+}
+
+.load-screen {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 20;
+  background-color: #fff;
+
+  @include flexCenter(center);
+  flex-direction: column;
+
+  svg {
+    transform: scale(2);
+  }
+
+  span {
+    font-size: 1rem;
+    margin: 3rem 0;
+  }
 }

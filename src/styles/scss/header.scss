@@ -3,6 +3,7 @@
   height: 70vh;
   display: grid;
   grid-template-columns: 1.2fr .8fr;
+  position: relative;
 
   .hero-carousel {
     position: relative;
@@ -54,6 +55,7 @@
       color: $Black;
       letter-spacing: 1.3em;
       transition: .1s;
+      transform: translateX(1rem);
       
       &:hover {
           color: $Dark-Gray;

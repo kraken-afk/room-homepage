@@ -1,7 +1,8 @@
 {
-  "name": "react-v5",
-  "version": "0.1.0",
+  "name": "room-homepage",
+  "version": "1.0.0",
   "private": true,
+  "author": "Romeo Noveanre",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

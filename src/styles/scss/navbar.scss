@@ -75,7 +75,7 @@
       &:checked ~ span:nth-child(2) {
         transform: rotate(45deg);
         width: 125%;
-        background-color: $Dark-Gray !important;
+        background-color: $Black !important;
       }
 
       &:checked ~ span:nth-child(3) {
@@ -85,7 +85,7 @@
       &:checked ~ span:nth-child(4) {
         transform: rotate(-45deg);
         width: 125%;
-        background-color: $Dark-Gray !important;
+        background-color: $Black !important;
       }      
     }
 
