@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 export default function LoadingScreen({ loadScreenRef }) {
 
+
   window.onload = () => {
     setTimeout(() => {
       const element = loadScreenRef.current;
@@ -10,8 +11,9 @@ export default function LoadingScreen({ loadScreenRef }) {
       element.classList.add("loading-close");
       element.onanimationend = () => {
         document.getElementById("pre-root").remove();
+        document.body.style.overflowY = "scroll";
       };
-    }, 500)
+    }, 600)
   };
 
   return ReactDOM.createPortal(

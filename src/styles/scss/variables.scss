@@ -66,10 +66,10 @@ $Spartan: "Spartan", sans-serif;
 .load-screen {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   z-index: 20;
   background-color: #fff;
-
+  
   @include flexCenter(center);
   flex-direction: column;
 

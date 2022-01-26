@@ -57,7 +57,7 @@ export default function App() {
   */
   useEffect(() => {
     // console.clear();
-
+    document.body.style.overflowY = "hidden";
     navScrollSystem();
   }, []);
 
